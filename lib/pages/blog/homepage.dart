@@ -1,4 +1,5 @@
 import 'package:blog/models/blogs.dart';
+import 'package:blog/pages/blog/post_Article.dart';
 import 'package:blog/widgets/appbar.dart';
 import 'package:blog/widgets/blockcontainer.dart';
 import 'package:blog/widgets/drawer.dart';
@@ -49,6 +50,12 @@ class homepage extends StatefulWidget {
     fetchdata();
     super.initState();
   }
+
+   void updateBlogsList(Blog newBlog) {
+     setState(() {
+       myBlogs.add(newBlog);
+     });
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +128,7 @@ class homepage extends StatefulWidget {
                     // Ensure ListView takes the necessary space
                     children: myBlogs.map((e) {
                       return BlogContainer(
-                        id: e.id,
+                        id: e.id??0,
                         title: e.title,
                         publication_date: e.publication_date,
                         description: e.desc,
@@ -139,6 +146,7 @@ class homepage extends StatefulWidget {
                 left: 320,
                 child:
                   ElevatedButton(
+
                     style: ElevatedButton.styleFrom(
                       primary: Colors.blue, // Background color
                       onPrimary: Colors.white, // Text color
@@ -151,7 +159,12 @@ class homepage extends StatefulWidget {
 
 
 
-                  onPressed: (){},
+                  onPressed: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                        return PostArticle(onArticlePosted: updateBlogsList);
+                      }));
+
+                  },
                   child: Text('+',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
                 )
             )

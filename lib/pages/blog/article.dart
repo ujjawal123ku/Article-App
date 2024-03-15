@@ -41,10 +41,10 @@ class _full_articlesState extends State<full_articles> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            IconButton(onPressed: (){}, icon: Icon(Icons.thumb_up)),
-            IconButton(onPressed: (){}, icon: Icon(Icons.thumb_down)),
-            IconButton(onPressed: (){}, icon: Icon(Icons.chat_bubble)),
-            IconButton(onPressed: (){}, icon: Icon(Icons.remove_red_eye)),
+            IconButton(onPressed: (){}, icon: Icon(Icons.thumb_up,size: 20,)),
+            IconButton(onPressed: (){}, icon: Icon(Icons.thumb_down,size: 20,)),
+            IconButton(onPressed: (){}, icon: Icon(Icons.chat_bubble,size: 20,)),
+            IconButton(onPressed: (){}, icon: Icon(Icons.remove_red_eye,size: 20,)),
            ],
          ),
       ),
